@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:b="clr-namespace:PrismListViewSample.ViewModels;assembly=PrismListViewSample"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismListViewSample.Views.MainPage"
+             Title="{Binding Title}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Items}">
+            <ListView.Behaviors>
+                <b:ItemSelectedToCommandBehavior Command="{Binding ItemSelectedCommand}"/>
+            </ListView.Behaviors>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
